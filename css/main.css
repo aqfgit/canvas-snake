@@ -1,0 +1,117 @@
+@font-face {
+  font-family: 'Retro';
+  src: url('gbb__.ttf') format('truetype');
+}
+html,
+body {
+  font-family: 'Retro';
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  /*background: #787065;*/
+  background: ##C8DAD1;
+}
+
+.game-wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  background: white;
+  border: 2px black solid;
+}
+
+.label {
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+.gameover-screen {
+    height: 600px;
+    width: 800px;
+    background: #FFF538;
+
+    font-size: 30px;
+
+    display: none;
+}
+
+.gameover-screen ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameover-screen ul li {
+  margin-bottom: 50px;
+}
+
+.final-score {
+  font-size: 80px;
+}
+
+.highscores-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 600px;
+  width: 800px;
+  color: white;
+  background: #0F1110;
+
+  display: none;
+}
+
+.highscores-board ol  {
+  margin-top: 35px;
+}
+
+.highscores-board ol li {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+ margin: 0 auto;
+ text-align: center;
+ width: 100%;
+ height: 100%;
+ border: 0;
+ -moz-border-radius:0px;
+ -webkit-border-radius:0px;
+ border-radius:2px;
+ display:inline-block;
+ cursor:pointer;
+ color:#ffffff;
+ font-size:17px;
+ text-decoration:none;
+}
+
+.reset-btn {
+   background-color:#53b56d;
+}
+
+.highscores-btn {
+  background-color:#2A6BD4;
+}
+
+.return-btn {
+  width: 400px;
+  height: 100px;
+  background-color: #D9C750;
+}
