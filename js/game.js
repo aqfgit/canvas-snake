@@ -22,12 +22,12 @@ const GAME = (function() {
     return state;
   }
 
-  let loop = function() {
+  function loop() {
     if( state === 'GAME' ) {
       GAME_STATE.update();
     }
      setTimeout( loop, 50 );
-   };
+   }
 
   return {
     getState: getState,

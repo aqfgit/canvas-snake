@@ -1,7 +1,7 @@
 const HIGHSCORES_STATE = (function() {
-  let highscoresBoard = document.querySelector('.highscores-board'),
-    highscoresList = document.querySelector('.highscores-list'),
-    highscoresReturnBtn = document.getElementById('return-from-highscores');
+  const highscoresBoard = document.querySelector('.highscores-board');
+  const highscoresList = document.querySelector('.highscores-list');
+  const  highscoresReturnBtn = document.getElementById('return-from-highscores');
 
   function init() {
     highscoresBoard.style.display = 'flex';

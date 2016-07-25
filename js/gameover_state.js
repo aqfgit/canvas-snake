@@ -1,9 +1,9 @@
 const GAMEOVER_STATE = (function() {
-  let restartBtn = document.getElementById('restart'),
-    gameOverScreen = document.querySelector('.gameover-screen'),
-    finalScoreLabel = document.querySelector('.final-score'),
-    playerNameInput = document.querySelector('.player-name'),
-    highscoreBoardBtn = document.getElementById('highscores-btn');
+  const restartBtn = document.getElementById('restart');
+  const gameOverScreen = document.querySelector('.gameover-screen');
+  const finalScoreLabel = document.querySelector('.final-score');
+  const playerNameInput = document.querySelector('.player-name');
+  const highscoreBoardBtn = document.getElementById('highscores-btn');
 
   function init() {
     bindEvents();
@@ -18,7 +18,7 @@ const GAMEOVER_STATE = (function() {
     GAME.init();
   }
 
-  let savePlayerToStorage = function() {
+  function savePlayerToStorage() {
     if( GAME_STATE.getPlayer().isSaved === false ) {
       GAME_STATE.getPlayer().isSaved = true;
       GAME_STATE.getPlayer().name = playerNameInput.value;
@@ -29,7 +29,7 @@ const GAMEOVER_STATE = (function() {
       highscores.push({ name: GAME_STATE.getPlayer().name, score: GAME_STATE.getPlayer().points });
       localStorage.setItem( 'highscores', JSON.stringify(highscores) );
     }
-  };
+  }
 
   function bindEvents() {
     restartBtn.addEventListener( 'click', restartGame, false );

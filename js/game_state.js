@@ -1,18 +1,18 @@
 const GAME_STATE = (function() {
-  let canvas = document.getElementById('gameboard');
-  let scoreBoard = document.querySelector('.scoreboard');
-  let highscoreLabel = document.querySelector('.highscore');
+  const canvas = document.getElementById('gameboard');
+  const scoreBoard = document.querySelector('.scoreboard');
+  const highscoreLabel = document.querySelector('.highscore');
 
   canvas.width = 800;
   canvas.height = 600;
 
-  let ctx = canvas.getContext('2d'),
-      gameBoardHeight = canvas.height,
-      gameBoardWidth = canvas.width,
-      player,
-      snake,
-      snakeHead,
-      apple;
+  const ctx = canvas.getContext('2d');
+  const gameBoardHeight = canvas.height;
+  const gameBoardWidth = canvas.width;
+  let player;
+  let snake;
+  let snakeHead;
+  let apple;
 
   function init() {
     definePlayerProperties();
@@ -226,7 +226,7 @@ const GAME_STATE = (function() {
   }
 
   function bindEvents() {
-    addEventListener( 'keydown', e => handleInput( event ), true );
+    addEventListener( 'keydown', event => handleInput( event ), true );
   }
 
   function unbindEvents() {
