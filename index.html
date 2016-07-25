@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-Us">
+  <meta charset="utf-8">
+  <title>Snake</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="game-wrap">
+    <div class="label">
+      <p class="scoreboard">Points: 0</p>
+      <p class="highscore">Highscore: 0</p>
+    </div>
+    <div class="gameover-screen">
+      <ul>
+        <li><p class="final-score">Your score: </p></li>
+        <li><label>Your name: </label>
+        <input class="player-name" type="text" maxlength="6"></li>
+        <li><button class="btn reset-btn" id="restart">Restart</button></li>
+        <li><button class="btn highscores-btn" id="highscores-btn">Highscores</button></li>
+      </ul>
+    </div>
+    <div class="highscores-board">
+      <ol class="highscores-list"></ol>
+      <button class="btn return-btn" id="return-from-highscores">Back</button>
+    </div>
+    <canvas id="gameboard" class="board"></canvas>
+  </div>
+  <script src="js/game_state.js"></script>
+  <script src="js/gameover_state.js"></script>
+  <script src="js/highscores_state.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
