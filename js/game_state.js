@@ -226,7 +226,7 @@ const GAME_STATE = (function() {
   }
 
   function bindEvents() {
-    addEventListener( 'keydown', e => handleInput( event ), true );
+    addEventListener( 'keydown', event => handleInput( event ), true );
   }
 
   function unbindEvents() {
