@@ -1,6 +1,11 @@
 const GAME = (function() {
   let state = 'GAME';
 
+  const fps = {
+    framesToSkip: 2,
+    counter: 0
+  };
+
   function init() {
     if( state === 'GAME' ) {
       GAME_STATE.init();
@@ -23,10 +28,18 @@ const GAME = (function() {
   }
 
   function loop() {
+    if ( fps.counter < fps.framesToSkip ) {
+        fps.counter++;
+        requestAnimationFrame( loop );
+        return;
+    }
+
     if( state === 'GAME' ) {
       GAME_STATE.update();
     }
-     setTimeout( loop, 50 );
+
+    fps.counter = 0;
+    requestAnimationFrame( loop );
    }
 
   return {
