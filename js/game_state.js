@@ -67,11 +67,11 @@ const GAME_STATE = (function() {
       color: 'red',
       isReachable: false,
       isOutsideSnakeBody: function() {
-        snake.body.forEach( (bodySegment) => {
-          if( ( bodySegment.x === this.x ) && ( bodySegment.y === this.y ) ) {
+        for ( segment of snake.body ) {
+          if( ( segment.x === this.x ) && ( segment.y === this.y ) ) {
             return false;
           }
-        });
+        }
         return true;
       },
       setValidPosition: function() {
@@ -122,7 +122,7 @@ const GAME_STATE = (function() {
   function update() {
     calculateSnakePosition();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    snake.body.forEach( draw );
+    for( segment of snake.body ) { draw( segment ) }
     draw(apple);
     drawGrid();
     displayScore();
@@ -178,9 +178,9 @@ const GAME_STATE = (function() {
     if( localStorage.getItem('highscores') ) {
       let storageHighscoresItemsArr = [ ];
       let storageHighscoresItems = JSON.parse(localStorage.getItem('highscores'));
-      storageHighscoresItems.forEach( ( item ) => {
+      for ( item of storageHighscoresItems ) {
         storageHighscoresItemsArr.push( item.score );
-      });
+      }
 
       let highscore = Math.max( ...storageHighscoresItemsArr );
       highscoreLabel.innerHTML = 'Highscore: ' + highscore;

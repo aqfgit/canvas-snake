@@ -19,9 +19,9 @@ const HIGHSCORES_STATE = (function() {
   function showHighscoresList() {
     let storageHighscoresItems = JSON.parse( localStorage.getItem('highscores') );
     let storageHighscoresItemsArr = [];
-    storageHighscoresItems.forEach(( item ) => {
+    for ( item of storageHighscoresItems ) {
       storageHighscoresItemsArr.push( item );
-    });
+    }
 
     storageHighscoresItemsArr.sort(function ( a, b ) {
       if (a.score > b.score) {
