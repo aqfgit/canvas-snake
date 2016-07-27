@@ -189,15 +189,18 @@ const GAME_STATE = (function() {
 
   function calculateSnakePosition() {
     for(let i = 1; i < snake.body.length; i++) {
-      snake.body[i].x = snake.body[i - 1].lastPosX;
-      snake.body[i].y = snake.body[i - 1].lastPosY;
+      let prevIndex = snake.body[i - 1];
+      snake.body[i].x = prevIndex.lastPosX;
+      snake.body[i].y = prevIndex.lastPosY;
 
-      snake.body[i - 1].lastPosX = snake.body[i - 1].x;
-      snake.body[i - 1].lastPosY = snake.body[i - 1].y;
+      prevIndex.lastPosX = prevIndex.x;
+      prevIndex.lastPosY = prevIndex.y;
     }
   }
 
   function checkForCollisions() {
+    let isSnakeCollidingWithApple =  snakeHead.x === apple.x  &&  snakeHead.y === apple.y;
+
     if( snakeHead.x >= gameBoardWidth ) {
       snakeHead.x = 0;
     }
@@ -211,7 +214,7 @@ const GAME_STATE = (function() {
       snakeHead.y = 0;
     }
 
-    if(( snakeHead.x === apple.x ) && ( snakeHead.y === apple.y )) {
+    if( isSnakeCollidingWithApple ) {
         player.points += 10;
         defineAppleProperties();
         snake.body.push( {color:'blue' });

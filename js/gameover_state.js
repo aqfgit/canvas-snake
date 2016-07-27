@@ -19,16 +19,16 @@ const GAMEOVER_STATE = (function() {
   }
 
   function savePlayerToStorage() {
-    if( GAME_STATE.getPlayer().isSaved === false ) {
-      GAME_STATE.getPlayer().isSaved = true;
-      GAME_STATE.getPlayer().name = playerNameInput.value;
-      let highscores = [];
-      if( localStorage.getItem('highscores') ) {
-        highscores = highscores.concat( JSON.parse( localStorage.getItem('highscores') ) );
-      }
-      highscores.push({ name: GAME_STATE.getPlayer().name, score: GAME_STATE.getPlayer().points });
-      localStorage.setItem( 'highscores', JSON.stringify(highscores) );
+    if( !GAME_STATE.getPlayer().isSaved === false ) return;
+    
+    GAME_STATE.getPlayer().isSaved = true;
+    GAME_STATE.getPlayer().name = playerNameInput.value;
+    let highscores = [];
+    if( localStorage.getItem('highscores') ) {
+      highscores = highscores.concat( JSON.parse( localStorage.getItem('highscores') ) );
     }
+    highscores.push({ name: GAME_STATE.getPlayer().name, score: GAME_STATE.getPlayer().points });
+    localStorage.setItem( 'highscores', JSON.stringify(highscores) );
   }
 
   function bindEvents() {
